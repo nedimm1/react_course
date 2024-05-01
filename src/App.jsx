@@ -1,4 +1,7 @@
 import reactImg from "./assets/react-core-concepts.png"
+import  componentsImg from "./assets/components.png"
+
+console.log(componentsImg)
 
 const descriptions = ['fundamental', 'core', 'crucial']
 
@@ -21,13 +24,41 @@ function Header(){
 </header>)
 }
 
+function CoreConcepts(props){
+  return(
+    <li>
+      <img src={props.image} alt={props.title} />
+      <h3>{props.title}</h3>
+      <p>{props.description}</p>
+    </li>
+  )
+}
+
 
 function App() {
   return (
     <div>
     <Header></Header>
       <main>
-        <h2>Time to get started!</h2>
+        <h2>Core Concepts</h2>
+        <section id="core-concepts">
+          <ul>
+            <CoreConcepts 
+            
+            title="Components" description="Building blocks of UI"> image={componentsImg}
+            
+            </CoreConcepts>
+
+            <CoreConcepts>
+            </CoreConcepts>
+            
+            <CoreConcepts>
+            </CoreConcepts>
+
+            <CoreConcepts>
+            </CoreConcepts>
+          </ul>
+        </section>
       </main>
     </div>
   );
