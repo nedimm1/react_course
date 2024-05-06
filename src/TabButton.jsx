@@ -1,5 +1,7 @@
+import "./TabStyles.css"
+
 export default function TabButton({children}){
     return(
-        <li><button>{children}</button></li>
+        <li class="list-container"><button class="list-button">{children}</button></li>
     )
 }
