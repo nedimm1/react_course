@@ -3,6 +3,7 @@ import  componentsImg from "./assets/components.png"
 import { CORE_CONCEPTS } from "./data.js"
 import Header from "./Header.jsx"
 import CoreConcepts from "./Concepts.jsx"
+import TabButton from "./TabButton.jsx"
 
 console.log(componentsImg)
 
@@ -42,6 +43,15 @@ function App() {
             </CoreConcepts>
           </ul>
         </section>
+
+      <section id="examples">
+          <h2>Examples</h2>
+          <TabButton>Components</TabButton>
+          <TabButton>JSX</TabButton>
+          <TabButton>Props</TabButton>
+          <TabButton>State</TabButton>
+      </section>
+
       </main>
     </div>
   );
