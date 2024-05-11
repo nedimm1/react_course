@@ -1,4 +1,4 @@
-import "./TabStyles.css"
+
 
 export default function TabButton({children}){
     return(
