@@ -1,5 +1,7 @@
 import {useState} from 'react'
 
+import {EXAMPLES} from "./data.js"
+
 import reactImg from "./assets/react-core-concepts.png"
 import  componentsImg from "./assets/components.png"
 import { CORE_CONCEPTS } from "./data.js"
@@ -19,7 +21,7 @@ function random(max){
 
 function App() {
 
-  const [sTopic, ssTopic] = useState();
+  const [sTopic, ssTopic] = useState('components');
 
   function handleSelect(selected){
     ssTopic(selected)
@@ -63,7 +65,22 @@ function App() {
           <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          {sTopic}
+          <div id="tab-content">
+            <h3>{EXAMPLES[sTopic].title}</h3>
+            <p >{EXAMPLES[sTopic].description}</p>
+
+            <pre>
+
+             <code >
+              
+              {EXAMPLES[sTopic].code}
+
+             </code>
+
+            </pre>
+
+
+          </div>
       </section>
 
       </main>
