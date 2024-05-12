@@ -1,9 +1,12 @@
+import {useState} from 'react'
+
 import reactImg from "./assets/react-core-concepts.png"
 import  componentsImg from "./assets/components.png"
 import { CORE_CONCEPTS } from "./data.js"
 import Header from "./Header.jsx"
 import CoreConcepts from "./Concepts.jsx"
 import TabButton from "./TabButton.jsx"
+import React from "react"
 
 console.log(componentsImg)
 
@@ -16,8 +19,10 @@ function random(max){
 
 function App() {
 
+  const [sTopic, ssTopic] = useState();
+
   function handleSelect(selected){
-    console.log(selected)
+    ssTopic(selected)
  }
 
 
@@ -58,6 +63,7 @@ function App() {
           <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+          {sTopic}
       </section>
 
       </main>
