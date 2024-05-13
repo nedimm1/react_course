@@ -1,59 +1,51 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
+import { EXAMPLES } from './data.js';
+import reactImg from './assets/react-core-concepts.png';
+import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data.js';
+import Header from './Header.jsx';
+import CoreConcepts from './Concepts.jsx';
+import TabButton from './TabButton.jsx';
 
-import { EXAMPLES } from "./data.js"
+console.log(componentsImg);
 
-import reactImg from "./assets/react-core-concepts.png"
-import componentsImg from "./assets/components.png"
-import { CORE_CONCEPTS } from "./data.js"
-import Header from "./Header.jsx"
-import CoreConcepts from "./Concepts.jsx"
-import TabButton from "./TabButton.jsx"
-import React from "react"
-
-console.log(componentsImg)
-
-const descriptions = ['fundamental', 'core', 'crucial']
+const descriptions = ['fundamental', 'core', 'crucial'];
 
 function random(max) {
-  return Math.floor(Math.random() * (max + 1))
+  return Math.floor(Math.random() * (max + 1));
 }
 
-
 function App() {
-
   const [sTopic, ssTopic] = useState('');
 
   function handleSelect(selected) {
-    ssTopic(selected)
+    ssTopic(selected);
   }
 
+  let tabContent = <p>select a topic</p>;
+
+  if (sTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[sTopic].title}</h3>
+        <p>{EXAMPLES[sTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[sTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <Header></Header>
+      <Header />
       <main>
         <h2>Core Concepts</h2>
         <section id="core-concepts">
           <ul>
-            <CoreConcepts
-
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}>
-
-            </CoreConcepts>
-
-            <CoreConcepts
-              {...CORE_CONCEPTS[1]}>
-            </CoreConcepts>
-
-            <CoreConcepts
-              {...CORE_CONCEPTS[2]}>
-            </CoreConcepts>
-
-            <CoreConcepts
-              {...CORE_CONCEPTS[3]}>
-            </CoreConcepts>
+            {CORE_CONCEPTS.map((concept, index) => (
+              <CoreConcepts key={index} {...concept} />
+            ))}
           </ul>
         </section>
 
@@ -65,29 +57,8 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-
-          {!sTopic && <p>select a topic</p>}
-
-          {sTopic && <div id="tab-content">
-
-
-            <h3>{EXAMPLES[sTopic].title}</h3>
-            <p >{EXAMPLES[sTopic].description}</p>
-
-            <pre>
-
-              <code >
-
-                {EXAMPLES[sTopic].code}
-
-              </code>
-
-            </pre>
-
-
-          </div>}
+          {tabContent}
         </section>
-
       </main>
     </div>
   );
