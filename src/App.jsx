@@ -66,9 +66,9 @@ function App() {
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
 
-          {!sTopic ? <p>select a topic</p> : null}
+          {!sTopic && <p>select a topic</p>}
 
-          {sTopic ? <div id="tab-content">
+          {sTopic && <div id="tab-content">
 
 
             <h3>{EXAMPLES[sTopic].title}</h3>
@@ -85,7 +85,7 @@ function App() {
             </pre>
 
 
-          </div> : null}
+          </div>}
         </section>
 
       </main>
