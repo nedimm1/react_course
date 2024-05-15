@@ -22,7 +22,7 @@ function App() {
     ssTopic(selected);
   }
 
-  let tabContent = <p>select a topic</p>;
+  let tabContent;
 
   if (sTopic) {
     tabContent = (
@@ -52,10 +52,10 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
-            <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+            <TabButton isSelected={sTopic === 'components'} onSelect={() => handleSelect('components')}>Components</TabButton>
+            <TabButton isSelected={sTopic === 'jsx'} onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton isSelected={sTopic === 'props'} onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton isSelected={sTopic === 'state'} onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
           {tabContent}
         </section>
