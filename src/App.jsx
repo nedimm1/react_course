@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { EXAMPLES } from './data.js';
 import reactImg from './assets/react-core-concepts.png';
 import componentsImg from './assets/components.png';
@@ -37,7 +37,7 @@ function App() {
   }
 
   return (
-    <div>
+    <Fragment>
       <Header />
       <main>
         <h2>Core Concepts</h2>
@@ -60,7 +60,7 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+    </Fragment>
   );
 }
 
