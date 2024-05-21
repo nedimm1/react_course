@@ -4,6 +4,8 @@ import TabButton from "./TabButton"
 
 import { EXAMPLES } from "./data"
 
+import Tabs from "./Tabs";
+
 export default function Examples(){
     const [sTopic, ssTopic] = useState('');
 
@@ -27,13 +29,16 @@ export default function Examples(){
    return(
     <section id="examples">
     <h2>Examples</h2>
-    <menu>
+    <Tabs buttons={
+      <>
       <TabButton isSelected={sTopic === 'components'} onClick={() => handleSelect('components')}>Components</TabButton>
       <TabButton isSelected={sTopic === 'jsx'} onClick={() => handleSelect('jsx')}>JSX</TabButton>
       <TabButton isSelected={sTopic === 'props'} onClick={() => handleSelect('props')}>Props</TabButton>
       <TabButton isSelected={sTopic === 'state'} onClick={() => handleSelect('state')}>State</TabButton>
-    </menu>
-    {tabContent}
+      </>
+    }>
+      {tabContent}
+    </Tabs>
   </section>
    )
 }
